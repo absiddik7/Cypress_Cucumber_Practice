@@ -6,7 +6,11 @@ jobs:
  Cypress-Test:
    runs-on: ubuntu-latest
    steps:
-     - name: Checkout GitCode
+     - name: Cypress Run
        uses: actions/checkout@v2
        with:
+        build: npm run build
+        start: npm start
         browser: chrome
+   
+        
