@@ -1,5 +1,5 @@
 {
-  "name": "cypress-cucumber-practice",
+  "name": "c",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.15.0",
+    "cypress": "^12.17.2",
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "cypress-cucumber-preprocessor": {
