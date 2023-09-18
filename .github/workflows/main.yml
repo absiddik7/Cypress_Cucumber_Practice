@@ -7,9 +7,7 @@ jobs:
  Cypress-Test:
    runs-on: ubuntu-latest
    steps:
-    - name: Cypress run
-      uses: cypress-io/github-action@v6
-      with:
-        build: npm run build
-        start: npm start
+     - name: Checkout GitCode
+       uses: actions/checkout@v2
+       with:
         browser: chrome
