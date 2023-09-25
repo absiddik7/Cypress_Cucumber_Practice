@@ -5,9 +5,7 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
-    permissions:
-      issues: write
-      pull-requests: write
+
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
       options: --user 1001
