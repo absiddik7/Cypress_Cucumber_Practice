@@ -23,15 +23,11 @@ jobs:
           mkdir public
           cp -r cypress/videos public/videos
 
-      - name: Merge test results into one
-        run: npm run report:merge
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         # If you're changing the branch from main,
         # also change the `main` in `refs/heads/main`
         # below accordingly.
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
