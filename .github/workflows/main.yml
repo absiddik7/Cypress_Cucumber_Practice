@@ -11,8 +11,6 @@ jobs:
       - name: Cypress Run
         run: |
           npm ci
-          $(npm bin)/cypress cache path
-          $(npm bin)/cypress cache list
           $(npm bin)/cypress verify
 
       - name: Run Cypress tests
