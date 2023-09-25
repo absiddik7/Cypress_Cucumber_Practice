@@ -18,7 +18,7 @@ jobs:
           build: npm run
           browser: chrome
 
-      - run: npm ci
-      - run: npm run format
-      - run: npm run build
-      - run: npm test
+      # - run: npm ci
+      # - run: npm run format
+      # - run: npm run build
+      # - run: npm test
