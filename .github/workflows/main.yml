@@ -1,16 +1,44 @@
 name: Cypress Test
-on: push
-   #branches:
-    # - main
+on:
+  push
+  #branches:
+  # - master
 jobs:
- Cypress-Test:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Cypress Run
-       uses: actions/checkout@v2
-       with:
-        build: npm run build
-        start: npm start
-        browser: chrome
-   
-        
+  Cypress-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cypress Run
+        run: |
+          npm ci
+          $(npm bin)/cypress cache path
+          $(npm bin)/cypress cache list
+          $(npm bin)/cypress verify
+
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: true
+
+      - name: Copy test execution videos
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+
+      - name: Merge test results into one
+        run: npm run report:merge
+
+      - name: Generate HTML report
+        run: npm run report:generate
+
+      - name: Deploy report page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+
+        #  with:
+        #   build: npm run build
+        #   start: npm start
+        #   browser: chrome
