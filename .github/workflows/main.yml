@@ -23,9 +23,6 @@ jobs:
           mkdir public
           cp -r cypress/videos public/videos
 
-      - name: Generate html report
-        run: npm run generator:report
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
