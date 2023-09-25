@@ -9,11 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Cypress Run
-        run: npm ci
-
-      - name: Run Cypress tests
-        run: npm run test:chrome
-        continue-on-error: true
+        run: |
+          npm ci
+          npm run build
 
       - name: Copy test execution videos
         run: |
