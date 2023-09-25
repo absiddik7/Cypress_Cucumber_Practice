@@ -9,9 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Cypress Run
-        run: |
-          npm ci
-          $(npm bin)/cypress verify
+        run: npm ci
 
       - name: Run Cypress tests
         run: npm run test:chrome
