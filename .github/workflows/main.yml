@@ -1,17 +1,13 @@
-name: Cucumber-Cypress Tests
+name: Cypress Test
 
 on:
   push:
     branches:
-      - main # Change this to your default branch if needed
-  pull_request:
-    branches:
-      - main # Change this to your default branch if needed
+      - main # Replace with your desired branch
 
 jobs:
-  test:
+  Cypress-Test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -24,5 +20,16 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Cucumber-Cypress Tests
-        run: npm test
+      - name: Build the Application
+        run: npm run build
+
+      - name: Start the Application
+        run:
+          npm start
+          # This runs the npm start command in the background
+
+      - name: Wait for the Application to Start
+        run: sleep 10 # Adjust the sleep duration as needed to ensure the application is running
+
+      - name: Run Cypress Tests
+        run: npx cypress run --browser chrome
