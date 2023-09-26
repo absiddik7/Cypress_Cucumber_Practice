@@ -23,6 +23,7 @@ jobs:
           mkdir public
           cp -r cypress/videos public/videos
           npm run report:generate
+        if: always()
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
