@@ -19,10 +19,7 @@ jobs:
           browser: chrome
 
       - name: Generate HTML report
-        run: |
-          mkdir public
-          cp -r cypress/videos public/videos
-          npm run report:generate
+        run: npm run report:generate
         if: always()
 
       - name: Deploy
