@@ -37,7 +37,7 @@ And('clicks on the login button', () => {
 });
 
 Then('I see unsuccessful login message', () => {
-    cy.get('div[id = "error"]').should('have.text', 'Your username is invalid!')
+    cy.get('div[id = "error"]').should('have.text', 'Your username is invalid!4')
 });
 
 //});
