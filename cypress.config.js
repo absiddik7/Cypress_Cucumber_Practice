@@ -11,6 +11,18 @@ module.exports = defineConfig({
     html: true, // Generate HTML report
     json: true, // Generate JSON report (optional)
   },
+  // "reporter": "cypress-multi-reporters",
+  // "reporterOptions": {
+  //   "reporterEnabled": "mochawesome",
+  //   "mochawesomeReporterOptions": {
+  //     "reportDir": "cypress/reports/mocha",
+  //     "quiet": true,
+  //     "overwrite": false,
+  //     "html": false,
+  //     "json": true
+  //   }
+  // },
+  
 
   e2e: {
     setupNodeEvents(on, config) {
