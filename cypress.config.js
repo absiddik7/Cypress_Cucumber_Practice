@@ -4,21 +4,30 @@ const {
   beforeRunHook,
   afterRunHook,
 } = require("cypress-mochawesome-reporter/lib");
+// module.exports = defineConfig({
+//   reporter: "cypress-mochawesome-reporter",
+//   reporterOptions: {
+//     // reportDir: "cypress\reports\html", // Directory where reports will be generated
+//     embeddedScreenshots: true,
+//     charts: true,
+//     inlineAssets: true,
+//     overwrite: true, // Set to true to overwrite existing reports (optional)
+//     html: false, // Generate HTML report
+//     //json: true,
+//     json: {
+//       enabled: true,
+//       formatter: "cucumber-json-formatter",
+//       output: "cypress/reports/json/cucumber-report.json",
+//     }, // Generate JSON report (optional)
+//   },
+
 module.exports = defineConfig({
-  reporter: "cypress-mochawesome-reporter",
+  reporter: "mochawesome",
   reporterOptions: {
-    // reportDir: "cypress\reports\html", // Directory where reports will be generated
-    embeddedScreenshots: true,
-    charts: true,
-    inlineAssets: true,
-    overwrite: true, // Set to true to overwrite existing reports (optional)
-    html: false, // Generate HTML report
-    //json: true,
-    json: {
-      enabled: true,
-      formatter: "cucumber-json-formatter",
-      output: "cypress/reports/json/cucumber-report.json",
-    }, // Generate JSON report (optional)
+    reportDir: "cypress/results",
+    overwrite: false,
+    html: false,
+    json: true,
   },
 
   e2e: {
