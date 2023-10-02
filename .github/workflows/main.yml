@@ -24,7 +24,7 @@ jobs:
       - name: Generate HTML report
         run: |
           mkdir public
-          cp -r cypress/videos /cypress/reports/html
+          cp -r cypress/videos cypress/reports public
           npm run report:generate
         if: always()
 
