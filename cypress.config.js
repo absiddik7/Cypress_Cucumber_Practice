@@ -1,9 +1,12 @@
 const { defineConfig } = require("cypress");
-const cucumber = require('cypress-cucumber-preprocessor').default 
-const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
+const cucumber = require("cypress-cucumber-preprocessor").default;
+const {
+  beforeRunHook,
+  afterRunHook,
+} = require("cypress-mochawesome-reporter/lib");
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter',
-  "reporterOptions": {
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
     // reportDir: "cypress\reports\html", // Directory where reports will be generated
     embeddedScreenshots: true,
     inlineAssets: true,
@@ -11,33 +14,20 @@ module.exports = defineConfig({
     html: true, // Generate HTML report
     json: true, // Generate JSON report (optional)
   },
-  // "reporter": "cypress-multi-reporters",
-  // "reporterOptions": {
-  //   "reporterEnabled": "mochawesome",
-  //   "mochawesomeReporterOptions": {
-  //     "reportDir": "cypress/reports/mocha",
-  //     "quiet": true,
-  //     "overwrite": false,
-  //     "html": false,
-  //     "json": true
-  //   }
-  // },
-  
 
   e2e: {
     setupNodeEvents(on, config) {
-      on('file:preprocessor', cucumber());
-      
-      on('before:run', async (details) => {
-        console.log('override before:run');
+      on("file:preprocessor", cucumber());
+
+      on("before:run", async (details) => {
+        console.log("override before:run");
         await beforeRunHook(details);
       });
 
-      on('after:run', async () => {
-        console.log('override after:run');
+      on("after:run", async () => {
+        console.log("override after:run");
         await afterRunHook();
       });
-      
     },
 
     specPattern: "**/*.feature",
