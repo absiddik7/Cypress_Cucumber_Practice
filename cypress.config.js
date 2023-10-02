@@ -9,6 +9,7 @@ module.exports = defineConfig({
   reporterOptions: {
     // reportDir: "cypress\reports\html", // Directory where reports will be generated
     embeddedScreenshots: true,
+    charts: true,
     inlineAssets: true,
     overwrite: true, // Set to true to overwrite existing reports (optional)
     html: true, // Generate HTML report
