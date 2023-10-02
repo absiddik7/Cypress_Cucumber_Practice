@@ -14,8 +14,18 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import 'cypress-mochawesome-reporter/register';
+import "./commands";
+import "cypress-mochawesome-reporter/register";
+
+Cypress.on("test:after:run", (test, runnable) => {
+  if (Cypress.config("video")) {
+    // assuming the videos are stored in "cypress/videos"
+    const videoFile = `../videos/${Cypress.spec.name}.mp4`;
+    if (Cypress.Mochawesome) {
+      Cypress.Mochawesome.context.push(videoFile);
+    }
+  }
+});
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
