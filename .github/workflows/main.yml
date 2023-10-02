@@ -3,7 +3,7 @@ name: Cypress Tests using Cypress Docker Image
 on:
   push:
   schedule: ## Schedule the job to run at 12.am daily.
-    - cron: "35 15 * * *"
+    - cron: "55 15 * * *"
 
 jobs:
   cypress-run:
@@ -23,8 +23,6 @@ jobs:
 
       - name: Generate HTML report
         run: |
-          mkdir public
-          cp -r cypress/reports/html/videos 
           npm run report:generate
         if: always()
 
