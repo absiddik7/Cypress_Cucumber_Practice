@@ -3,13 +3,22 @@ Feature: Login validation
 	Background: Before each
 		Given I visit the login page
 
-	Scenario: Login with valid credentials
-		When I enter valid username and password
+	Scenario Outline: Login with valid credentials
+		When I enter valid username "<UserName>" and password "<Password>"
 		And clicks on the login button
 		Then I see successful login message
 
-	Scenario: Login with invalid username
-		When I enter invalid username and valid password
+		Examples:
+			| UserName | Password    |
+			| student  | Password123 |
+
+
+	Scenario Outline: Login with invalid username
+		When I enter invalid username "<UserName>" and valid password "<Password>"
 		And clicks on the login button
 		Then I see unsuccessful login message
+
+		Examples:
+			| UserName | Password    |
+			| student1 | Password123 |
 
