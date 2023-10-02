@@ -19,16 +19,16 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
+      require("cypress-mochawesome-reporter/plugin")(on);
+      // on("before:run", async (details) => {
+      //   console.log("override before:run");
+      //   await beforeRunHook(details);
+      // });
 
-      on("before:run", async (details) => {
-        console.log("override before:run");
-        await beforeRunHook(details);
-      });
-
-      on("after:run", async () => {
-        console.log("override after:run");
-        await afterRunHook();
-      });
+      // on("after:run", async () => {
+      //   console.log("override after:run");
+      //   await afterRunHook();
+      // });
     },
 
     specPattern: "**/*.feature",
