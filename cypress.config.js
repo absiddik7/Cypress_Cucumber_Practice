@@ -12,7 +12,7 @@ module.exports = defineConfig({
     inlineAssets: true,
     overwrite: true, // Set to true to overwrite existing reports (optional)
     html: true, // Generate HTML report
-    json: true, // Generate JSON report (optional)
+    json: false, // Generate JSON report (optional)
   },
 
   e2e: {
