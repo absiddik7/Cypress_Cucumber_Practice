@@ -12,7 +12,7 @@ module.exports = defineConfig({
     charts: true,
     inlineAssets: true,
     overwrite: true, // Set to true to overwrite existing reports (optional)
-    html: true, // Generate HTML report
+    html: false, // Generate HTML report
     //json: true,
     json: {
       enabled: true,
