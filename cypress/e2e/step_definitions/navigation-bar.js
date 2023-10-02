@@ -9,7 +9,6 @@ Given("I visit https://www.nexalinx.com/", () => {
 });
 
 // Verify that clicking on the navigation item opens corrects URL
-//it("Clicking on navigation items opens correct URLs", () => {
 When("I click on the {string} link from the navigation bar", (navItem) => {
   cy.contains("a", navItem).click();
 });
@@ -17,10 +16,8 @@ When("I click on the {string} link from the navigation bar", (navItem) => {
 Then("I should be redirected to the corresponding {string} URL", (url) => {
   cy.url().should("eq", url);
 });
-//});
 
 // Verify that clicking on the navigation item "Services" opens corrects URL
-//it("Clicking on Services from navigation bar opens dropdown menu", () => {
 When("I click on the Services from navigation bar", () => {
   cy.contains('a[id="basic-nav-dropdown"]', "Services").click();
 });
@@ -31,10 +28,8 @@ Then(
     cy.contains("a", options).should("be.visible");
   }
 );
-//});
 
 // Verify that clicking on the navigation item "Technologies" opens corrects URL
-//it("Clicking on Technologies from navigation bar opens dropdown menu", () => {
 When("I click on the Technologies from navigation bar", () => {
   cy.contains('a[id="basic-nav-dropdown"]', "Technologies").click();
 });
@@ -45,10 +40,8 @@ Then(
     cy.contains("a", options).should("be.visible");
   }
 );
-//});
 
 // Verify that clicking on the navigation item "About Us" opens corrects URL
-//it("Clicking on About US from navigation bar opens dropdown menu", () => {
 When("I click on the About US from navigation bar", () => {
   cy.contains('a[id="basic-nav-dropdown"]', "About US").click();
 });
@@ -59,4 +52,3 @@ Then(
     cy.contains("a", options).should("be.visible");
   }
 );
-//});
