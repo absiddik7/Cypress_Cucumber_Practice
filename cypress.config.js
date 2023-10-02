@@ -13,7 +13,12 @@ module.exports = defineConfig({
     inlineAssets: true,
     overwrite: true, // Set to true to overwrite existing reports (optional)
     html: true, // Generate HTML report
-    json: true, // Generate JSON report (optional)
+    //json: true,
+    json: {
+      enabled: true,
+      formatter: "cucumber-json-formatter",
+      output: "cypress/reports/json/cucumber-report.json",
+    }, // Generate JSON report (optional)
   },
 
   e2e: {
