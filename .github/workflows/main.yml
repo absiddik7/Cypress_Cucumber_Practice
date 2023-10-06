@@ -1,9 +1,9 @@
 name: Cypress Tests using Cypress Docker Image
 
 on:
-  push:
-  schedule: ## Schedule the job to run at 12.am daily.
-    - cron: "55 15 * * *"
+  push
+  #schedule: ## Schedule the job to run at 12.am daily.
+    #- cron: "55 15 * * *"
 
 jobs:
   cypress-run:
