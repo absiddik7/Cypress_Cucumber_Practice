@@ -13,6 +13,7 @@ This repository contains the necessary setup and examples for performing automat
 4. Install Dependencies:
    ```bash
    npm init
+   
 ## Run Test:
    ```bash
    npx cypress open
